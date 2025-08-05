@@ -48,7 +48,7 @@ function SearchInput({ onInputChange, onAmountChange }) {
         onChange={handleNameChange}
         placeholder="Busca un personaje (ej. Rick Sanchez)"
         className="w-full sm:max-w-md p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500
-                   dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  dark:bg-gray-700 dark:border-gray-600 dark:text-white"
       />
       <input
         type="number"
@@ -58,7 +58,7 @@ function SearchInput({ onInputChange, onAmountChange }) {
         min="1"
         max="20"
         className="w-full sm:max-w-[150px] p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500
-                   dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  dark:bg-gray-700 dark:border-gray-600 dark:text-white"
       />
     </div>
   );

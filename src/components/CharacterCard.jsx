@@ -37,6 +37,12 @@ function CharacterCard({ character }) {
       <p className="text-md font-medium text-gray-600 dark:text-gray-300">
         Origen: {character.origin.name}
       </p>
+      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
+        Estado: {character.status}
+      </p>
+      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
+        Genero: {character.gender}
+      </p>
 
       {/* Botón para agregar a favoritos, se deshabilita si ya es favorito. */}
       <button
