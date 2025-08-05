@@ -27,22 +27,23 @@ function CharacterCard({ character }) {
           className="w-full h-full object-cover object-center transform hover:scale-110 transition-transform duration-500 rounded-md"
         />
       </div>
-
-      <h3 className="text-2xl font-bold text-indigo-700 dark:text-blue-400 mb-2 truncate">
-        {character.name}
-      </h3>
-      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
-        Especie: {character.species}
-      </p>
-      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
-        Origen: {character.origin.name}
-      </p>
-      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
-        Estado: {character.status}
-      </p>
-      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
-        Genero: {character.gender}
-      </p>
+      <div>
+        <h3 className="text-2xl font-bold text-indigo-700 dark:text-blue-400 mb-2 truncate">
+          {character.name}
+        </h3>
+        <p className="text-md font-medium text-gray-600 dark:text-gray-300">
+          Especie: {character.species}
+        </p>
+        <p className="text-md font-medium text-gray-600 dark:text-gray-300">
+          Origen: {character.origin.name}
+        </p>
+        <p className="text-md font-medium text-gray-600 dark:text-gray-300">
+          Estado: {character.status}
+        </p>
+        <p className="text-md font-medium text-gray-600 dark:text-gray-300">
+          Genero: {character.gender}
+        </p>
+      </div>
 
       {/* Botón para agregar a favoritos, se deshabilita si ya es favorito. */}
       <button

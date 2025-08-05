@@ -1,77 +1,62 @@
-Demo
-https://rickandmorty-personaje.netlify.app/
+# 🚀 Buscador de Personajes de Rick and Morty
 
-Rick and Morty App
-📝 Descripción del Proyecto
-¡Bienvenido a la Rick and Morty App! Esta es una aplicación web dinámica y moderna diseñada para que los fanáticos de la serie puedan explorar a sus personajes favoritos, buscarlos por nombre y gestionar una lista de favoritos. La aplicación utiliza la API de Rick and Morty para obtener los datos de los personajes y ofrece una experiencia de usuario interactiva y visualmente atractiva, con soporte para temas claro y oscuro.
+¡Bienvenido al Buscador de Personajes de Rick and Morty! Esta aplicación web te permite explorar a los personajes de la popular serie, buscar por nombre, ver sus detalles, y guardar tus favoritos en una lista persistente.
 
-✨ Características Principales
-Catálogo de Personajes: Explora una lista completa de personajes de la serie, con sus imágenes, nombres, especies y lugar de origen.
+[Enlace al proyecto desplegado](https://rickandmorty-personaje.netlify.app/)
 
-Búsqueda Dinámica: Filtra los personajes por nombre en tiempo real a través de un campo de búsqueda intuitivo.
+## 🎯 Objetivo del Proyecto
 
-Carga Dinámica de Contenido: Utiliza un botón "Mostrar más personajes" para cargar contenido adicional a la vista sin recargar la página.
+El objetivo principal de este proyecto era construir una aplicación completa en **React + Vite** que consumiera una API externa. Se puso énfasis en el uso de buenas prácticas como:
 
-Gestión de Favoritos:
+-   **Manejo de APIs REST** y peticiones asíncronas.
+-   **Gestión de estado** con `useState` y `useEffect`.
+-   **Notificaciones** de usuario con `react-toastify`.
+-   **Formularios controlados** y validaciones básicas.
+-   **Persistencia de datos** con `localStorage`.
+-   **Diseño responsive** con **TailwindCSS**.
 
-Agrega personajes a una lista de favoritos con un solo clic.
+## 🛠️ Tecnologías Utilizadas
 
-El botón se deshabilita automáticamente cuando un personaje ya ha sido añadido.
+-   **React**: Biblioteca principal para la construcción de la interfaz de usuario.
+-   **Vite**: Herramienta de construcción rápida y ligera para proyectos de React.
+-   **TailwindCSS**: Framework CSS de utilidad para un diseño rápido y flexible.
+-   **react-toastify**: Librería para mostrar notificaciones personalizables.
+-   **Context API**: Para una gestión de estado global de los favoritos y el tema.
+-   **API de Rick and Morty**: La fuente de datos para los personajes.
 
-Elimina personajes de la lista de favoritos.
+## 🌟 Características
 
-Vacía la lista de favoritos por completo.
+-   **Búsqueda de personajes**: Encuentra personajes por su nombre utilizando un campo de búsqueda (`debounce` implementado para optimizar las peticiones).
+-   **Visualización de datos**: Los personajes se muestran en tarjetas con su imagen y detalles como especie, estado y origen.
+-   **Botón "Mostrar más"**: Carga más personajes de la lista completa para una navegación más cómoda.
+-   **Sistema de favoritos**: Agrega y elimina personajes de una lista de favoritos.
+-   **Persistencia de datos**: Tus personajes favoritos se guardan en el `localStorage` para que no los pierdas al recargar la página.
+-   **Modal de Favoritos**: Un modal dedicado para ver y gestionar la lista completa de tus personajes favoritos.
+-   **Tema oscuro/claro**: Un botón en el encabezado te permite alternar entre un tema visual claro y oscuro, con persistencia en `localStorage`.
+-   **Feedback de usuario**: El uso de `react-toastify` proporciona notificaciones claras sobre el éxito de las búsquedas, errores o acciones en la lista de favoritos.
+-   **Loader**: Un componente de carga animado se muestra mientras se obtienen los datos de la API, mejorando la experiencia de usuario.
 
-Modal de Favoritos Interactivo: Un modal elegante para ver y gestionar la lista de personajes favoritos.
+## 🌐 ¿Por qué se usó `fetch` en lugar de `axios`?
 
-Modo Claro/Oscuro (Dark Mode Toggle): Cambia entre un tema de diseño claro y uno oscuro para una experiencia visual personalizada y cómoda.
+Se eligió la API nativa del navegador, `fetch`, por su simplicidad y ligereza. Para este proyecto, que realiza peticiones HTTP de tipo GET a una sola API, `fetch` ofrece todas las funcionalidades necesarias sin la necesidad de agregar una dependencia externa. Esto ayuda a mantener el bundle de la aplicación más pequeño y el código más directo.
 
-Notificaciones Toast: Alertas de notificación que aparecen para confirmar acciones como agregar o eliminar favoritos.
+## 🚀 Cómo ejecutar el proyecto localmente
 
-Persistencia de Datos: El estado de tu lista de favoritos y la preferencia de tema se guardan en el localStorage del navegador, persistiendo entre sesiones.
+1.  Clona el repositorio:
+    ```Terminal
+    git clone https://github.com/LautaroET/modulo4-sprint4-tp
+    cd nombre-del-repositorio
+    ```
+2.  Instala las dependencias:
+    ```Terminal
+    npm install
+    ```
+3.  Inicia el servidor de desarrollo:
+    ```Terminal
+    npm run dev
+    ```
 
-🚀 Cómo Iniciar el Proyecto
-Sigue estos pasos para levantar la aplicación en tu entorno local.
-
-Prerequisitos
-Asegúrate de tener instalado:
-
-Node.js (versión 14 o superior recomendada)
-
-npm (Node Package Manager)
-
-Instalación
-Clona el repositorio (si aplica) o navega a la carpeta del proyecto.
-
-Instala las dependencias:
-
-Bash
-
-npm install
-Ejecución
-Una vez que las dependencias estén instaladas, puedes iniciar el servidor de desarrollo:
-
-Bash
-
-npm run dev
-Esto iniciará la aplicación en modo de desarrollo. Abre tu navegador y navega a http://localhost:5173 (o el puerto que te indique la consola). La aplicación se recargará automáticamente cada vez que hagas cambios en el código.
-
-🛠️ Tecnologías Utilizadas
-React: Una biblioteca de JavaScript para construir interfaces de usuario.
-
-Vite: Un bundler de próxima generación para desarrollo web, utilizado para un inicio rápido y recarga en caliente instantánea.
-
-Tailwind CSS: Un framework de CSS de bajo nivel (utility-first) para construir diseños personalizados rápidamente.
-
-Context API (React): Para la gestión del estado global de favoritos y el tema, evitando el "prop drilling".
-
-react-toastify: Una biblioteca para notificaciones personalizables.
-
-JavaScript (ES6+): El lenguaje de programación principal.
-
-HTML5: Estructura de la aplicación.
-
-CSS3: Estilos adicionales y personalización.
+El proyecto se abrirá en tu navegador en `http://localhost:5173/`.
 
 📂 Estructura del Proyecto
 El proyecto sigue una estructura modular para facilitar la escalabilidad y el mantenimiento:
@@ -80,7 +65,8 @@ El proyecto sigue una estructura modular para facilitar la escalabilidad y el ma
 │   └── img/
 ├── src/
 │   ├── components/       # Componentes reutilizables de UI (CharacterCard, Header, Footer, etc.)
-│   ├── context/          # Contextos de React para gestión de estado global (FavoritosContext, TemaContext)
+│   ├── context/          # Contextos de React para gestión de estado global (FavoritosContext,TemaContext)
+│   ├── services.jsx      # pedido de api (get)
 │   ├── App.jsx           # Componente principal de la aplicación
 │   ├── main.jsx          # Punto de entrada de la aplicación
 │   └── index.css         # Estilos base y de Tailwind
