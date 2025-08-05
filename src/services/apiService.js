@@ -1,4 +1,5 @@
-// src/services/apiService.js
+// Obtiene la URL base de la API desde la variable de entorno
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 /**
  * @async
@@ -9,7 +10,7 @@
  */
 export const fetchAllCharacters = async (name = "") => {
   let allResults = [];
-  let nextUrl = `https://rickandmortyapi.com/api/character/?name=${name}`;
+  let nextUrl = `${BASE_URL}?name=${name}`; // Usa la variable BASE_URL
 
   try {
     while (nextUrl) {
