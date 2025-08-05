@@ -1,42 +1,43 @@
-// Importa las funciones necesarias desde React.
 import React, { createContext, useState, useEffect } from "react";
 
-// Crea un nuevo contexto llamado TemaContext, que se usará para compartir el estado del tema entre componentes.
+// Crea un nuevo contexto llamado TemaContext para gestionar el tema.
 export const TemaContext = createContext();
 
-// Componente proveedor del contexto, que envuelve a la aplicación y le brinda acceso al tema.
+/**
+ * @component TemaProvider
+ * @param {{children: React.ReactNode}} props - Los componentes hijos que tendrán acceso al contexto.
+ * @description Proveedor de contexto para gestionar el tema de la aplicación (claro/oscuro).
+ */
 const TemaProvider = ({ children }) => {
-  // Estado que determina si el tema oscuro está activo.
-  // Se inicializa leyendo el valor guardado previamente en localStorage.
+  // Estado para el tema oscuro, inicializado desde localStorage.
   const [temaOscuro, setTemaOscuro] = useState(() => {
     const guardado = localStorage.getItem("temaOscuro");
-    // Si hay un valor guardado, se convierte de string a booleano con JSON.parse.
-    // Si no hay valor guardado, el valor por defecto es `false` (tema claro).
     return guardado ? JSON.parse(guardado) : false;
   });
 
-  // Efecto que se ejecuta cada vez que cambia el valor de `temaOscuro`.
+  /**
+   * Hook de efecto que se ejecuta cada vez que cambia el valor de `temaOscuro`.
+   * Guarda el estado en localStorage y actualiza la clase 'dark' en el elemento <html>.
+   */
   useEffect(() => {
-    // Guarda el nuevo valor del estado en localStorage, para que se recuerde al recargar la página.
     localStorage.setItem("temaOscuro", JSON.stringify(temaOscuro));
 
-    // Añade o remueve la clase 'dark' al elemento raíz <html>,
-    // lo que permite que los estilos CSS con clases condicionales (ej: Tailwind) funcionen correctamente.
     if (temaOscuro) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [temaOscuro]); // El efecto depende de `temaOscuro`, así que se ejecuta cuando cambia.
+  }, [temaOscuro]);
 
-  // Función que invierte el valor actual de `temaOscuro` (claro ↔ oscuro).
+  /**
+   * @function alternarTema
+   * @description Invierte el valor actual de `temaOscuro`.
+   */
   const alternarTema = () => {
     setTemaOscuro((prev) => !prev);
   };
 
-  // Devuelve el proveedor del contexto con los valores disponibles para los componentes hijos:
-  // - `temaOscuro`: booleano que indica si está activo el tema oscuro.
-  // - `alternarTema`: función para alternar entre tema claro y oscuro.
+  // Provee el estado y la función para alternar el tema a los componentes hijos.
   return (
     <TemaContext.Provider value={{ temaOscuro, alternarTema }}>
       {children}
@@ -44,7 +45,6 @@ const TemaProvider = ({ children }) => {
   );
 };
 
-// Exporta el proveedor para usarlo en la raíz de la aplicación.
 export default TemaProvider;
 
 

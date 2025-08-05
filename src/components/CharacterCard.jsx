@@ -1,9 +1,16 @@
 import React, { useContext } from "react";
 import { FavoritosContext } from "../context/FavoritosContext";
 
+/**
+ * @component CharacterCard
+ * @param {{character: Object}} props - Objeto del personaje.
+ * @description Componente que renderiza una tarjeta individual de personaje.
+ */
 function CharacterCard({ character }) {
+  // Obtiene las funciones y el estado del contexto de favoritos.
   const { agregarAFavoritos, favoritos } = useContext(FavoritosContext);
 
+  // Determina si el personaje actual ya está en la lista de favoritos.
   const isFavorite = favoritos.some((fav) => fav.id === character.id);
 
   return (
@@ -30,14 +37,8 @@ function CharacterCard({ character }) {
       <p className="text-md font-medium text-gray-600 dark:text-gray-300">
         Origen: {character.origin.name}
       </p>
-      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
-        status: {character.status}
-      </p>
-      <p className="text-md font-medium text-gray-600 dark:text-gray-300">
-        Genero: {character.gender}
-      </p>
-      
 
+      {/* Botón para agregar a favoritos, se deshabilita si ya es favorito. */}
       <button
         onClick={() => agregarAFavoritos(character)}
         disabled={isFavorite}

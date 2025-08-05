@@ -1,7 +1,13 @@
 import React, { useContext } from "react";
 import { TemaContext } from "../context/TemaContext";
 
+/**
+ * @component Header
+ * @param {{onToggleFavorites: Function}} props - Función para alternar el modal de favoritos.
+ * @description Componente del encabezado que incluye el logo, el alternador de tema y el botón de favoritos.
+ */
 function Header({ onToggleFavorites }) {
+  // Obtiene el estado y la función para alternar el tema del contexto.
   const { temaOscuro, alternarTema } = useContext(TemaContext);
 
   return (
@@ -17,6 +23,7 @@ function Header({ onToggleFavorites }) {
         </h1>
       </div>
       <div className="flex items-center gap-4">
+        {/* Botón para alternar entre tema claro y oscuro */}
         <button
           onClick={alternarTema}
           className="text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-300 hover:scale-105 transition-transform duration-300"
@@ -28,6 +35,7 @@ function Header({ onToggleFavorites }) {
           )}
         </button>
 
+        {/* Botón para abrir el modal de favoritos */}
         <button
           onClick={onToggleFavorites}
           className="text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-300 flex items-center hover:scale-105 transition-transform duration-300"

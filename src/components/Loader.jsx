@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * @component Loader
+ * @description Muestra una animación de carga mientras se obtienen los datos.
+ */
 function Loader() {
   return (
     <div className="flex justify-center items-center py-12">
